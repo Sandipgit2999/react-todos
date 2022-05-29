@@ -5,11 +5,23 @@ const Todo = () => {
   const [newTodo, setTodo] = useState("");
   const [todos, setTodos] = useState([]);
   const handlechange = (e) => {
+    console.log(newTodo)
     setTodo(e.target.value);
   };
 
   return (
     <>
+      
+      <div className={styles.main}>
+        {todos.map((todo) => (
+          <div  className={styles.main_input}>
+            {todo.value}{" "}
+            <div className={styles.dot}>
+              <div className={styles.dit}></div>
+            </div>
+          </div>
+        ))}
+      </div>
       <div className={styles.main}>
         <input
           className={styles.main_inputth}
@@ -25,16 +37,6 @@ const Todo = () => {
         >
           +
         </button>
-      </div>
-      <div className={styles.main}>
-        {todos.map((todo) => (
-          <div className={styles.main_input}>
-            {todo.value}{" "}
-            <div className={styles.dot}>
-              <div className={styles.dit}></div>
-            </div>
-          </div>
-        ))}
       </div>
     </>
   );
